@@ -5,7 +5,10 @@ import com.brickup.taskmanager.api.model.TaskStatus;
 import com.brickup.taskmanager.api.repository.TaskRepository;
 import com.brickup.taskmanager.domain.BusinessException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Service;
 
+@Service
 public class TaskService {
     @Autowired
     private TaskRepository taskRepository;
