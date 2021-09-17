@@ -48,6 +48,12 @@ public class TaskController {
         return taskService.finishTaskById(taskId);
     }
 
+    @PutMapping("/{taskId}")
+    public ResponseEntity<Task> editTask(@PathVariable Long taskId,
+                                         @RequestBody Task task) {
+        return taskService.editTaskById(task, taskId);
+    }
+
     @DeleteMapping("/{taskId}")
     public ResponseEntity<Void> deleteTask(@PathVariable Long taskId) {
         if(!taskRepository.existsById(taskId))

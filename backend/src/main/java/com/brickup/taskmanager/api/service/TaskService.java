@@ -17,12 +17,7 @@ public class TaskService {
     private TaskRepository taskRepository;
 
     public Task saveTask(Task task) {
-        boolean isTitleRepeated = taskRepository.findByTitle(task.getTitle())
-                .stream()
-                .anyMatch(tasks -> !tasks.equals(task));
-
-        if(isTitleRepeated)
-            throw new BusinessException("Título já está em uso");
+        equalsTaskTitles(task);
 
         task.setStatus(TaskStatus.PENDENTE);
 
@@ -45,7 +40,35 @@ public class TaskService {
         return ResponseEntity.ok(taskFound);
     }
 
+    public ResponseEntity<Task> editTaskById(Task task,
+                                             Long id) {
+        equalsTaskTitles(task);
+
+        Task taskPast = taskRepository.getById(id);
+
+        task.setStatus(taskPast.getStatus());
+
+        if(!task.getDescription().isEmpty())
+            taskPast.setDescription(task.getDescription());
+
+        if(!task.getTitle().isEmpty())
+            taskPast.setTitle(task.getTitle());
+
+        taskRepository.save(taskPast);
+
+        return ResponseEntity.ok(taskPast);
+    }
+
     public void deleteById(Long taskId) {
         taskRepository.deleteById(taskId);
+    }
+
+    public void equalsTaskTitles(Task task) {
+        boolean isTitleRepeated = taskRepository.findByTitle(task.getTitle())
+                .stream()
+                .anyMatch(tasks -> !tasks.equals(task));
+
+        if(isTitleRepeated)
+            throw new BusinessException("Título já está em uso");
     }
 }
