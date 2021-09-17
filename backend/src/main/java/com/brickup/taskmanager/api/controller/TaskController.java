@@ -42,4 +42,9 @@ public class TaskController {
     public Task addNewTask(@RequestBody Task task) {
         return taskService.saveTask(task);
     }
+
+    @PutMapping("/status/{taskId}/finalizar")
+    public ResponseEntity<Task> finishTask(@PathVariable Long taskId){
+        return taskService.finishTaskById(taskId);
+    }
 }

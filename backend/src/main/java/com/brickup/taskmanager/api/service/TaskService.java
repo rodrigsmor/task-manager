@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class TaskService {
@@ -34,5 +33,15 @@ public class TaskService {
         List<Task> correspondingTasks = new ArrayList<>(taskRepository.findByStatus(taskStatus));
 
         return ResponseEntity.ok(correspondingTasks);
+    }
+
+    public ResponseEntity<Task> finishTaskById(Long taskId) {
+        taskRepository.findById(taskId).
+                ifPresent(finishTask -> finishTask.setStatus(TaskStatus.FINALIZADO));
+
+        Task taskFound = taskRepository.getById(taskId);
+        taskRepository.save(taskFound);
+
+        return ResponseEntity.ok(taskFound);
     }
 }
