@@ -44,4 +44,8 @@ public class TaskService {
 
         return ResponseEntity.ok(taskFound);
     }
+
+    public void deleteById(Long taskId) {
+        taskRepository.deleteById(taskId);
+    }
 }
