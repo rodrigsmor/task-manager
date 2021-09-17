@@ -1,6 +1,7 @@
 package com.brickup.taskmanager.api.controller;
 
 import com.brickup.taskmanager.api.model.Task;
+import com.brickup.taskmanager.api.model.TaskStatus;
 import com.brickup.taskmanager.api.repository.TaskRepository;
 import com.brickup.taskmanager.api.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,11 @@ public class TaskController {
         return taskRepository.findById(taskId)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
+    }
+
+    @GetMapping("/status/{taskStatus}")
+    public ResponseEntity<List<Task>> fetchTaskByStatus(@PathVariable TaskStatus taskStatus) {
+        return taskService.returnTaskByStatus(taskStatus);
     }
 
     @PostMapping
