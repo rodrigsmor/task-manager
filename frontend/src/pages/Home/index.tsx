@@ -1,7 +1,10 @@
 import NavBar from '../../components/NavBar';
 import Header from '../../components/Header';
+import MainHome from '../../components/MainHome';
+
 import {
-    HomeSection
+    HomeSection,
+    Container
 } from './styled';
 
 const Home: React.FC = () => {
@@ -9,7 +12,10 @@ const Home: React.FC = () => {
         <>
             <HomeSection>
                 <NavBar />
-                <Header />
+                <Container>
+                    <Header />
+                    <MainHome />
+                </ Container>
             </HomeSection>
         </>
     );

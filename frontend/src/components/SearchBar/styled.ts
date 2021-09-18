@@ -21,6 +21,7 @@ export const InputBox = styled.input`
     color: #EFF9F0;
     font-size: 15px;
     border: none;
+    outline: none;
     background: transparent;
 
     &::-webkit-input-placeholder {

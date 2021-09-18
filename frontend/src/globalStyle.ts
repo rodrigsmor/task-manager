@@ -15,4 +15,10 @@ export default createGlobalStyle`
         overflow-x: hidden;
         background: #EFF9F0;
     }
+
+    main {
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
 `;
