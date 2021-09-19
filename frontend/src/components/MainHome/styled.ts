@@ -45,12 +45,12 @@ export const TopSection = styled.section`
 export const BottomSection = styled.section`
     width: 95%;
     height: 100%;
-    padding: 25px;
     display: flex;
     grid-gap: 20px;
     position: relative;
     background: #DDC8C4;
     flex-direction: row;
+	padding: 25px 25px 20px;
     border-radius: 30px 30px 0 0;
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,.1);
 

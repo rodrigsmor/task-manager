@@ -9,7 +9,7 @@ export enum TaskTypes {
 export interface Tasks {
     id: number
     title: string
-    description?: string
+    description?: string 
     status: string
 }
 
@@ -22,5 +22,5 @@ export interface Tasks {
 
 export type TaskActions = {
     type: keyof typeof TaskTypes
-    payload?: Tasks
+    payload?: Tasks[]
 }

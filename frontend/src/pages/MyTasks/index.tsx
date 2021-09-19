@@ -1,5 +1,7 @@
 import Header from '../../components/Header';
 import NavBar from '../../components/NavBar';
+import ListTasks from '../../components/TaskList';
+
 import {
     PageSection,
     Container
@@ -13,7 +15,7 @@ const MyTasks: React.FC = () => {
                 <Container>
                     <Header 
                         pageTitle='Minhas Tarefas'/>
-                    
+                    <ListTasks />
                 </Container>
             </PageSection>
         </>

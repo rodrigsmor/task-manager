@@ -13,7 +13,7 @@ import { VscHome } from 'react-icons/vsc';
 import { BsListNested } from 'react-icons/bs';
 import { AiOutlineUser } from 'react-icons/ai';
 import { IoSettingsOutline } from 'react-icons/io5';
-import { PropsHeader } from '../../utils/types'
+import { PropsHeader } from '../../types/types'
 
 const NavBar = (props: PropsHeader) => {
     return (
