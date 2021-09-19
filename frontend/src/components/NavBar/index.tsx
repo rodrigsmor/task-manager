@@ -13,8 +13,9 @@ import { VscHome } from 'react-icons/vsc';
 import { BsListNested } from 'react-icons/bs';
 import { AiOutlineUser } from 'react-icons/ai';
 import { IoSettingsOutline } from 'react-icons/io5';
+import { PropsHeader } from '../../utils/types'
 
-const NavBar = () => {
+const NavBar = (props: PropsHeader) => {
     return (
         <NavigationWrapper>
             <NavbarContainer>
@@ -22,11 +23,16 @@ const NavBar = () => {
 
                 <NavComponent>
                     <ul>
-                        <li><LinkTo to="/" className="selected"> <VscHome /> <span> Home </span> </LinkTo></li>
-                        <li><LinkTo to="/MyTasks"> <BsListNested /> <span> Minhas Tarefas </span> </LinkTo></li>
-                        <li><LinkTo to="/"> <BiPlus /> <span> Adicionar </span> </LinkTo></li>
-                        <li><LinkTo to="/"> <AiOutlineUser /> <span> Minha conta </span> </LinkTo></li>
-                        <li><LinkTo to="/"> <IoSettingsOutline/> <span> Configuração </span> </LinkTo></li>
+                        <li className={ props.nameClass === 'home' ? 'selected' : '' }>
+                            <LinkTo to="/" > <VscHome /> <span> Home </span> </LinkTo></li>
+                        <li className={ props.nameClass === 'mytask' ? 'selected' : '' }>
+                            <LinkTo to="/MyTasks"> <BsListNested /> <span> Minhas Tarefas </span> </LinkTo></li>
+                        <li>
+                            <LinkTo to="/"> <BiPlus /> <span> Adicionar </span> </LinkTo></li>
+                        <li className={ props.nameClass === 'account' ? 'selected' : '' }>
+                            <LinkTo to="/"> <AiOutlineUser /> <span> Minha conta </span> </LinkTo></li>
+                        <li className={ props.nameClass === 'configs' ? 'selected' : '' }>
+                            <LinkTo to="/"> <IoSettingsOutline/> <span> Configurações </span> </LinkTo></li>
                     </ul>
                 </NavComponent>
 

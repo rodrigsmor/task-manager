@@ -1,15 +1,21 @@
-import { Link } from 'react-router-dom';
+import Header from '../../components/Header';
+import NavBar from '../../components/NavBar';
+import {
+    PageSection,
+    Container
+} from '../generalStyled';
 
-const MyTasks = () => {
+const MyTasks: React.FC = () => {
     return (
         <> 
-            <h1>Minhas Tarefas</h1>
-
-            <button>
-                <Link to='/'>
-                    Click on me
-                </Link>
-            </button>
+            <PageSection>
+                <NavBar nameClass='mytask'/>
+                <Container>
+                    <Header 
+                        pageTitle='Minhas Tarefas'/>
+                    
+                </Container>
+            </PageSection>
         </>
     );
 }

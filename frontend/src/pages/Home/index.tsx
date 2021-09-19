@@ -3,20 +3,21 @@ import Header from '../../components/Header';
 import MainHome from '../../components/MainHome';
 
 import {
-    HomeSection,
+    PageSection,
     Container
-} from './styled';
+} from '../generalStyled'
 
 const Home: React.FC = () => {
     return (
         <>
-            <HomeSection>
-                <NavBar />
+            <PageSection>
+                <NavBar nameClass='home'/>
                 <Container>
-                    <Header />
+                    <Header
+                        pageTitle='Home' />
                     <MainHome />
                 </ Container>
-            </HomeSection>
+            </PageSection>
         </>
     );
 }

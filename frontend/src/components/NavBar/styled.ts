@@ -44,11 +44,10 @@ export const NavComponent = styled.nav`
                 background: rgba(239,249,240,0.05);
             }
 
-            &:nth-of-type(1) {
+            &.selected {
                 width: 125%;
-                background: #EFF9F0;
-
                 color: #13070c;
+                background: #EFF9F0;
             }
         }
     }
@@ -68,7 +67,7 @@ export const LinkTo = styled(Link)`
         font-family: 'Montserrat', sans-serif;
     }
     
-    &.selected {
+    li.selected & {
         color: #13070c;
         font-weight: 600;
 

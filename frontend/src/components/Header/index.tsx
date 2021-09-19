@@ -7,14 +7,15 @@ import {
 
 import { VscBell } from 'react-icons/vsc';
 import userPhoto from '../../img/user.jpg';
-import SearchBar from '../../components/SearchBar'
+import SearchBar from '../../components/SearchBar';
+import { PropsHeader } from '../../utils/types'
 
-const Header = () => {
+const Header = (props: PropsHeader) => {
     return (
         <HeaderComponent>
             <BoxTitle>
                 <h1>
-                    Home
+                    {props.pageTitle}
                 </h1>
             </BoxTitle>
 
