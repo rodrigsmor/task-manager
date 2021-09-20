@@ -8,9 +8,8 @@ import {
 import { VscBell } from 'react-icons/vsc';
 import userPhoto from '../../img/user.jpg';
 import SearchBar from '../../components/SearchBar';
-import { PropsHeader } from '../../types/types'
 
-const Header = (props: PropsHeader) => {
+const Header = (props) => {
     return (
         <HeaderComponent>
             <BoxTitle>

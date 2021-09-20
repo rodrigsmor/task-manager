@@ -5,6 +5,8 @@ import com.brickup.taskmanager.api.model.TaskStatus;
 import com.brickup.taskmanager.api.repository.TaskRepository;
 import com.brickup.taskmanager.api.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,6 +25,13 @@ public class TaskController {
     @GetMapping
     public List<Task> listAllTasks() {
         return taskRepository.findAll();
+    }
+
+    @GetMapping("/pages")
+    public ResponseEntity<Page<Task>> findAll(Pageable pageable) {
+        Page<Task> list = taskRepository.findAll(pageable);
+
+        return ResponseEntity.ok(list);
     }
 
     @GetMapping("/{taskId}")

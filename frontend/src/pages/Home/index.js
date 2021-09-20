@@ -7,7 +7,7 @@ import {
     Container
 } from '../generalStyled'
 
-const Home: React.FC = () => {
+const Home = () => {
     return (
         <>
             <PageSection>

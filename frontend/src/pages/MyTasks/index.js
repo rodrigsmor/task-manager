@@ -7,7 +7,7 @@ import {
     Container
 } from '../generalStyled';
 
-const MyTasks: React.FC = () => {
+const MyTasks = () => {
     return (
         <> 
             <PageSection>
