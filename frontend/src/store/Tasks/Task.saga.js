@@ -1,11 +1,12 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
 
-const apiUrl = 'http://localhost:8080/';
+const apiUrl = 'http://localhost:8080';
 
 function getApi() {
-    return fetch(`${apiUrl}`, {
+    return fetch(`${apiUrl}/Task/pages?page=0&size=5&sort=id,desc`, {
         method: 'GET',
         headers: {
+            'Accept': 'application/json',
             'Content-Type': 'application/json',
         }
     }).then(response => response.json)

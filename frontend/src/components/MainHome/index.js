@@ -42,13 +42,13 @@ const MainHome = () => {
                         {tasks.loading && <h5>carregando...</h5>}
                         {
                             tasks.length > 0
-                                && tasks.map((tasks) => (
-                                    <TableRecentTasks key={tasks.id}>
+                                && tasks.content?.map((task) => (
+                                    <TableRecentTasks key={task.id}>
                                         <img src={user} alt="imagem da tarefa" />
 
-                                        <h4>{tasks.title}</h4>
+                                        <h4>{task.title}</h4>
 
-                                        <h5 className={tasks.status}>{tasks.status}</h5>
+                                        <h5 className={task.status}>{task.status}</h5>
 
                                         <button className="viewTask">
                                             Visualizar
